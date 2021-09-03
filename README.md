@@ -8,7 +8,7 @@ aws-cdk-microservice construct library is an open-source extension of the AWS Cl
  ```typescript
 import { Stack, StackProps } from '@aws-cdk/core';
 import { Construct } from 'constructs';
-import { InfraEnv, MicroService, ProductName } from '@smallcase/aws-cdk-microservice';
+import { MicroService } from '@smallcase/aws-cdk-microservice';
 import { App } from '@aws-cdk/core';
 
 export class UnknownAPIStackDev extends Stack {
