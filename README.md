@@ -65,6 +65,15 @@ app.synth()
 ```
 Please refer [here](/API.md) to check how to use individual resource constructs.
 
+Install using NPM:
+```
+npm install @smallcase/aws-cdk-microservice
+```
+Using yarn
+```
+yarn add @smallcase/aws-cdk-microservice
+```
+
 Configuration helper
 | **Property**                 | **Type**                                  | **Default** | **Description**                                                                                                                                                                                                                                                 |
 |------------------------------|-------------------------------------------|-------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -140,3 +149,5 @@ Deploy using
 ```
 ~ -> cdk deploy
 ```
+
+PS: Because of an [aws-cdk issue](https://github.com/aws/aws-cdk/issues/6803), creating a Route 53 record from existing load balancer is not possible using cdk.
