@@ -2,6 +2,7 @@ import { CfnAutoScalingGroup } from '@aws-cdk/aws-autoscaling';
 import { EbsDeviceVolumeType } from '@aws-cdk/aws-ec2';
 import { Effect, PolicyStatement, Role, ServicePrincipal } from '@aws-cdk/aws-iam';
 import { Construct } from '@aws-cdk/core';
+import { InternalSG } from '..';
 import { AutoScaler, IngressRule, InternalRole } from './autoScalingGroup';
 import { Deployment } from './deployment';
 import { BalancerEntry } from './network';
@@ -31,6 +32,7 @@ export interface MicroServiceProps {
   readonly createCodedeployApplication?: boolean;
   readonly deploymentPolicies?: string[];
   readonly applicationType?: string;
+  readonly securityGroupProps?: InternalSG;
 }
 export class MicroService extends Construct {
 
@@ -56,6 +58,7 @@ export class MicroService extends Construct {
   public readonly createCodedeployApplication?: boolean;
   public readonly deploymentPolicies?: string[];
   public readonly applicationType?: string;
+  public readonly securityGroupProps?: InternalSG;
 
   constructor(scope: Construct, id: string, props: MicroServiceProps) {
     super(scope, id);
@@ -82,6 +85,7 @@ export class MicroService extends Construct {
     this.createCodedeployApplication = props.createCodedeployApplication ?? false;
     this.deploymentPolicies = props.deploymentPolicies ?? [];
     this.applicationType = props.applicationType ?? 'new';
+    this.securityGroupProps = props.securityGroupProps;
 
     const resourceNamePrefix = this.env + '-' + this.appName;
     const asg = new AutoScaler(this, resourceNamePrefix + '-as', {
@@ -112,7 +116,7 @@ export class MicroService extends Construct {
           type: 'existing',
           vpcName: this.vpc,
         },
-        securityGroup: {
+        securityGroup: this.securityGroupProps ?? {
           type: 'new',
           allowAllOutbound: true,
           securityGroupName: resourceNamePrefix + '-SG',

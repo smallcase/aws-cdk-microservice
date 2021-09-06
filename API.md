@@ -257,6 +257,12 @@ new MicroService(scope: Construct, id: string, props: MicroServiceProps)
 
 ---
 
+##### `securityGroupProps`<sup>Optional</sup> <a name="@smallcase/aws-cdk-microservice.MicroService.property.securityGroupProps"></a>
+
+- *Type:* [`@smallcase/aws-cdk-microservice.InternalSG`](#@smallcase/aws-cdk-microservice.InternalSG)
+
+---
+
 ##### `sslEnabled`<sup>Optional</sup> <a name="@smallcase/aws-cdk-microservice.MicroService.property.sslEnabled"></a>
 
 - *Type:* `boolean`
@@ -881,6 +887,12 @@ const microServiceProps: MicroServiceProps = { ... }
 ##### `protocol`<sup>Optional</sup> <a name="@smallcase/aws-cdk-microservice.MicroServiceProps.property.protocol"></a>
 
 - *Type:* `string`
+
+---
+
+##### `securityGroupProps`<sup>Optional</sup> <a name="@smallcase/aws-cdk-microservice.MicroServiceProps.property.securityGroupProps"></a>
+
+- *Type:* [`@smallcase/aws-cdk-microservice.InternalSG`](#@smallcase/aws-cdk-microservice.InternalSG)
 
 ---
 
