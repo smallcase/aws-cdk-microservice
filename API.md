@@ -4,7 +4,7 @@
 
 ### AutoScaler <a name="@smallcase/aws-cdk-microservice.AutoScaler"></a>
 
-#### Initializer <a name="@smallcase/aws-cdk-microservice.AutoScaler.Initializer"></a>
+#### Initializers <a name="@smallcase/aws-cdk-microservice.AutoScaler.Initializer"></a>
 
 ```typescript
 import { AutoScaler } from '@smallcase/aws-cdk-microservice'
@@ -36,6 +36,10 @@ new AutoScaler(scope: Construct, id: string, props: AutoScalerProps)
 
 ##### `targetGroupArn`<sup>Required</sup> <a name="@smallcase/aws-cdk-microservice.AutoScaler.property.targetGroupArn"></a>
 
+```typescript
+public readonly targetGroupArn: string;
+```
+
 - *Type:* `string`
 
 ---
@@ -43,7 +47,7 @@ new AutoScaler(scope: Construct, id: string, props: AutoScalerProps)
 
 ### BalancerEntry <a name="@smallcase/aws-cdk-microservice.BalancerEntry"></a>
 
-#### Initializer <a name="@smallcase/aws-cdk-microservice.BalancerEntry.Initializer"></a>
+#### Initializers <a name="@smallcase/aws-cdk-microservice.BalancerEntry.Initializer"></a>
 
 ```typescript
 import { BalancerEntry } from '@smallcase/aws-cdk-microservice'
@@ -75,7 +79,7 @@ new BalancerEntry(scope: Construct, id: string, props: LoadBalancerProps)
 
 ### Deployment <a name="@smallcase/aws-cdk-microservice.Deployment"></a>
 
-#### Initializer <a name="@smallcase/aws-cdk-microservice.Deployment.Initializer"></a>
+#### Initializers <a name="@smallcase/aws-cdk-microservice.Deployment.Initializer"></a>
 
 ```typescript
 import { Deployment } from '@smallcase/aws-cdk-microservice'
@@ -107,7 +111,7 @@ new Deployment(scope: Construct, id: string, props: DeploymentProps)
 
 ### MicroService <a name="@smallcase/aws-cdk-microservice.MicroService"></a>
 
-#### Initializer <a name="@smallcase/aws-cdk-microservice.MicroService.Initializer"></a>
+#### Initializers <a name="@smallcase/aws-cdk-microservice.MicroService.Initializer"></a>
 
 ```typescript
 import { MicroService } from '@smallcase/aws-cdk-microservice'
@@ -139,11 +143,19 @@ new MicroService(scope: Construct, id: string, props: MicroServiceProps)
 
 ##### `appName`<sup>Required</sup> <a name="@smallcase/aws-cdk-microservice.MicroService.property.appName"></a>
 
+```typescript
+public readonly appName: string;
+```
+
 - *Type:* `string`
 
 ---
 
 ##### `role`<sup>Required</sup> <a name="@smallcase/aws-cdk-microservice.MicroService.property.role"></a>
+
+```typescript
+public readonly role: InternalRole;
+```
 
 - *Type:* [`@smallcase/aws-cdk-microservice.InternalRole`](#@smallcase/aws-cdk-microservice.InternalRole)
 
@@ -151,11 +163,19 @@ new MicroService(scope: Construct, id: string, props: MicroServiceProps)
 
 ##### `sshKey`<sup>Required</sup> <a name="@smallcase/aws-cdk-microservice.MicroService.property.sshKey"></a>
 
+```typescript
+public readonly sshKey: string;
+```
+
 - *Type:* `string`
 
 ---
 
 ##### `subnets`<sup>Required</sup> <a name="@smallcase/aws-cdk-microservice.MicroService.property.subnets"></a>
+
+```typescript
+public readonly subnets: string[];
+```
 
 - *Type:* `string`[]
 
@@ -163,11 +183,19 @@ new MicroService(scope: Construct, id: string, props: MicroServiceProps)
 
 ##### `vpc`<sup>Required</sup> <a name="@smallcase/aws-cdk-microservice.MicroService.property.vpc"></a>
 
+```typescript
+public readonly vpc: string;
+```
+
 - *Type:* `string`
 
 ---
 
 ##### `applicationType`<sup>Optional</sup> <a name="@smallcase/aws-cdk-microservice.MicroService.property.applicationType"></a>
+
+```typescript
+public readonly applicationType: string;
+```
 
 - *Type:* `string`
 
@@ -175,11 +203,19 @@ new MicroService(scope: Construct, id: string, props: MicroServiceProps)
 
 ##### `asgMaxSize`<sup>Optional</sup> <a name="@smallcase/aws-cdk-microservice.MicroService.property.asgMaxSize"></a>
 
+```typescript
+public readonly asgMaxSize: string;
+```
+
 - *Type:* `string`
 
 ---
 
 ##### `asgMinSize`<sup>Optional</sup> <a name="@smallcase/aws-cdk-microservice.MicroService.property.asgMinSize"></a>
+
+```typescript
+public readonly asgMinSize: string;
+```
 
 - *Type:* `string`
 
@@ -187,11 +223,19 @@ new MicroService(scope: Construct, id: string, props: MicroServiceProps)
 
 ##### `createCodedeployApplication`<sup>Optional</sup> <a name="@smallcase/aws-cdk-microservice.MicroService.property.createCodedeployApplication"></a>
 
+```typescript
+public readonly createCodedeployApplication: boolean;
+```
+
 - *Type:* `boolean`
 
 ---
 
 ##### `deploymentPolicies`<sup>Optional</sup> <a name="@smallcase/aws-cdk-microservice.MicroService.property.deploymentPolicies"></a>
+
+```typescript
+public readonly deploymentPolicies: string[];
+```
 
 - *Type:* `string`[]
 
@@ -199,11 +243,19 @@ new MicroService(scope: Construct, id: string, props: MicroServiceProps)
 
 ##### `diskSize`<sup>Optional</sup> <a name="@smallcase/aws-cdk-microservice.MicroService.property.diskSize"></a>
 
+```typescript
+public readonly diskSize: number;
+```
+
 - *Type:* `number`
 
 ---
 
 ##### `diskType`<sup>Optional</sup> <a name="@smallcase/aws-cdk-microservice.MicroService.property.diskType"></a>
+
+```typescript
+public readonly diskType: string;
+```
 
 - *Type:* `string`
 
@@ -211,11 +263,19 @@ new MicroService(scope: Construct, id: string, props: MicroServiceProps)
 
 ##### `env`<sup>Optional</sup> <a name="@smallcase/aws-cdk-microservice.MicroService.property.env"></a>
 
+```typescript
+public readonly env: string;
+```
+
 - *Type:* `string`
 
 ---
 
 ##### `healthCheckPath`<sup>Optional</sup> <a name="@smallcase/aws-cdk-microservice.MicroService.property.healthCheckPath"></a>
+
+```typescript
+public readonly healthCheckPath: string;
+```
 
 - *Type:* `string`
 
@@ -223,11 +283,19 @@ new MicroService(scope: Construct, id: string, props: MicroServiceProps)
 
 ##### `host`<sup>Optional</sup> <a name="@smallcase/aws-cdk-microservice.MicroService.property.host"></a>
 
+```typescript
+public readonly host: string;
+```
+
 - *Type:* `string`
 
 ---
 
 ##### `instanceLabels`<sup>Optional</sup> <a name="@smallcase/aws-cdk-microservice.MicroService.property.instanceLabels"></a>
+
+```typescript
+public readonly instanceLabels: TagPropertyProperty[];
+```
 
 - *Type:* [`@aws-cdk/aws-autoscaling.CfnAutoScalingGroup.TagPropertyProperty`](#@aws-cdk/aws-autoscaling.CfnAutoScalingGroup.TagPropertyProperty)[]
 
@@ -235,11 +303,19 @@ new MicroService(scope: Construct, id: string, props: MicroServiceProps)
 
 ##### `instanceType`<sup>Optional</sup> <a name="@smallcase/aws-cdk-microservice.MicroService.property.instanceType"></a>
 
+```typescript
+public readonly instanceType: string;
+```
+
 - *Type:* `string`
 
 ---
 
 ##### `lbArn`<sup>Optional</sup> <a name="@smallcase/aws-cdk-microservice.MicroService.property.lbArn"></a>
+
+```typescript
+public readonly lbArn: string;
+```
 
 - *Type:* `string`
 
@@ -247,11 +323,19 @@ new MicroService(scope: Construct, id: string, props: MicroServiceProps)
 
 ##### `port`<sup>Optional</sup> <a name="@smallcase/aws-cdk-microservice.MicroService.property.port"></a>
 
+```typescript
+public readonly port: number;
+```
+
 - *Type:* `number`
 
 ---
 
 ##### `protocol`<sup>Optional</sup> <a name="@smallcase/aws-cdk-microservice.MicroService.property.protocol"></a>
+
+```typescript
+public readonly protocol: string;
+```
 
 - *Type:* `string`
 
@@ -259,17 +343,29 @@ new MicroService(scope: Construct, id: string, props: MicroServiceProps)
 
 ##### `securityGroupProps`<sup>Optional</sup> <a name="@smallcase/aws-cdk-microservice.MicroService.property.securityGroupProps"></a>
 
+```typescript
+public readonly securityGroupProps: InternalSG;
+```
+
 - *Type:* [`@smallcase/aws-cdk-microservice.InternalSG`](#@smallcase/aws-cdk-microservice.InternalSG)
 
 ---
 
 ##### `sslEnabled`<sup>Optional</sup> <a name="@smallcase/aws-cdk-microservice.MicroService.property.sslEnabled"></a>
 
+```typescript
+public readonly sslEnabled: boolean;
+```
+
 - *Type:* `boolean`
 
 ---
 
 ##### `tcpRules`<sup>Optional</sup> <a name="@smallcase/aws-cdk-microservice.MicroService.property.tcpRules"></a>
+
+```typescript
+public readonly tcpRules: IngressRule[];
+```
 
 - *Type:* [`@smallcase/aws-cdk-microservice.IngressRule`](#@smallcase/aws-cdk-microservice.IngressRule)[]
 
@@ -290,17 +386,29 @@ const applicationProps: ApplicationProps = { ... }
 
 ##### `applicationName`<sup>Required</sup> <a name="@smallcase/aws-cdk-microservice.ApplicationProps.property.applicationName"></a>
 
+```typescript
+public readonly applicationName: string;
+```
+
 - *Type:* `string`
 
 ---
 
 ##### `resourceType`<sup>Required</sup> <a name="@smallcase/aws-cdk-microservice.ApplicationProps.property.resourceType"></a>
 
+```typescript
+public readonly resourceType: string;
+```
+
 - *Type:* `string`
 
 ---
 
 ##### `type`<sup>Required</sup> <a name="@smallcase/aws-cdk-microservice.ApplicationProps.property.type"></a>
+
+```typescript
+public readonly type: string;
+```
 
 - *Type:* `string`
 
@@ -318,11 +426,19 @@ const autoScalerProps: AutoScalerProps = { ... }
 
 ##### `asgName`<sup>Required</sup> <a name="@smallcase/aws-cdk-microservice.AutoScalerProps.property.asgName"></a>
 
+```typescript
+public readonly asgName: string;
+```
+
 - *Type:* `string`
 
 ---
 
 ##### `maxSize`<sup>Required</sup> <a name="@smallcase/aws-cdk-microservice.AutoScalerProps.property.maxSize"></a>
+
+```typescript
+public readonly maxSize: string;
+```
 
 - *Type:* `string`
 
@@ -330,11 +446,19 @@ const autoScalerProps: AutoScalerProps = { ... }
 
 ##### `minSize`<sup>Required</sup> <a name="@smallcase/aws-cdk-microservice.AutoScalerProps.property.minSize"></a>
 
+```typescript
+public readonly minSize: string;
+```
+
 - *Type:* `string`
 
 ---
 
 ##### `subnets`<sup>Required</sup> <a name="@smallcase/aws-cdk-microservice.AutoScalerProps.property.subnets"></a>
+
+```typescript
+public readonly subnets: string[];
+```
 
 - *Type:* `string`[]
 
@@ -342,17 +466,29 @@ const autoScalerProps: AutoScalerProps = { ... }
 
 ##### `templateProps`<sup>Required</sup> <a name="@smallcase/aws-cdk-microservice.AutoScalerProps.property.templateProps"></a>
 
+```typescript
+public readonly templateProps: InternalLaunchTemplateProps;
+```
+
 - *Type:* [`@smallcase/aws-cdk-microservice.InternalLaunchTemplateProps`](#@smallcase/aws-cdk-microservice.InternalLaunchTemplateProps)
 
 ---
 
 ##### `tags`<sup>Optional</sup> <a name="@smallcase/aws-cdk-microservice.AutoScalerProps.property.tags"></a>
 
+```typescript
+public readonly tags: TagPropertyProperty[];
+```
+
 - *Type:* [`@aws-cdk/aws-autoscaling.CfnAutoScalingGroup.TagPropertyProperty`](#@aws-cdk/aws-autoscaling.CfnAutoScalingGroup.TagPropertyProperty)[]
 
 ---
 
 ##### `tgProps`<sup>Optional</sup> <a name="@smallcase/aws-cdk-microservice.AutoScalerProps.property.tgProps"></a>
+
+```typescript
+public readonly tgProps: TargetGroupProps;
+```
 
 - *Type:* [`@smallcase/aws-cdk-microservice.TargetGroupProps`](#@smallcase/aws-cdk-microservice.TargetGroupProps)
 
@@ -370,11 +506,19 @@ const deploymentProps: DeploymentProps = { ... }
 
 ##### `applicationProps`<sup>Required</sup> <a name="@smallcase/aws-cdk-microservice.DeploymentProps.property.applicationProps"></a>
 
+```typescript
+public readonly applicationProps: ApplicationProps;
+```
+
 - *Type:* [`@smallcase/aws-cdk-microservice.ApplicationProps`](#@smallcase/aws-cdk-microservice.ApplicationProps)
 
 ---
 
 ##### `asgNames`<sup>Required</sup> <a name="@smallcase/aws-cdk-microservice.DeploymentProps.property.asgNames"></a>
+
+```typescript
+public readonly asgNames: string[];
+```
 
 - *Type:* `string`[]
 
@@ -382,11 +526,19 @@ const deploymentProps: DeploymentProps = { ... }
 
 ##### `deploymentConfigName`<sup>Required</sup> <a name="@smallcase/aws-cdk-microservice.DeploymentProps.property.deploymentConfigName"></a>
 
+```typescript
+public readonly deploymentConfigName: string;
+```
+
 - *Type:* `string`
 
 ---
 
 ##### `deploymentGroupName`<sup>Required</sup> <a name="@smallcase/aws-cdk-microservice.DeploymentProps.property.deploymentGroupName"></a>
+
+```typescript
+public readonly deploymentGroupName: string;
+```
 
 - *Type:* `string`
 
@@ -394,11 +546,19 @@ const deploymentProps: DeploymentProps = { ... }
 
 ##### `roleArn`<sup>Required</sup> <a name="@smallcase/aws-cdk-microservice.DeploymentProps.property.roleArn"></a>
 
+```typescript
+public readonly roleArn: string;
+```
+
 - *Type:* `string`
 
 ---
 
 ##### `tgName`<sup>Required</sup> <a name="@smallcase/aws-cdk-microservice.DeploymentProps.property.tgName"></a>
+
+```typescript
+public readonly tgName: string;
+```
 
 - *Type:* `string`
 
@@ -416,17 +576,29 @@ const ingressRule: IngressRule = { ... }
 
 ##### `port`<sup>Required</sup> <a name="@smallcase/aws-cdk-microservice.IngressRule.property.port"></a>
 
+```typescript
+public readonly port: number;
+```
+
 - *Type:* `number`
 
 ---
 
 ##### `sourceSG`<sup>Required</sup> <a name="@smallcase/aws-cdk-microservice.IngressRule.property.sourceSG"></a>
 
+```typescript
+public readonly sourceSG: string;
+```
+
 - *Type:* `string`
 
 ---
 
 ##### `description`<sup>Optional</sup> <a name="@smallcase/aws-cdk-microservice.IngressRule.property.description"></a>
+
+```typescript
+public readonly description: string;
+```
 
 - *Type:* `string`
 
@@ -444,11 +616,19 @@ const instanceStackProps: InstanceStackProps = { ... }
 
 ##### `asgName`<sup>Required</sup> <a name="@smallcase/aws-cdk-microservice.InstanceStackProps.property.asgName"></a>
 
+```typescript
+public readonly asgName: string;
+```
+
 - *Type:* `string`
 
 ---
 
 ##### `instanceProps`<sup>Required</sup> <a name="@smallcase/aws-cdk-microservice.InstanceStackProps.property.instanceProps"></a>
+
+```typescript
+public readonly instanceProps: InstanceProps;
+```
 
 - *Type:* [`@aws-cdk/aws-ec2.InstanceProps`](#@aws-cdk/aws-ec2.InstanceProps)
 
@@ -456,11 +636,19 @@ const instanceStackProps: InstanceStackProps = { ... }
 
 ##### `instanceVolumeSize`<sup>Optional</sup> <a name="@smallcase/aws-cdk-microservice.InstanceStackProps.property.instanceVolumeSize"></a>
 
+```typescript
+public readonly instanceVolumeSize: BlockDevice;
+```
+
 - *Type:* [`@aws-cdk/aws-ec2.BlockDevice`](#@aws-cdk/aws-ec2.BlockDevice)
 
 ---
 
 ##### `role`<sup>Optional</sup> <a name="@smallcase/aws-cdk-microservice.InstanceStackProps.property.role"></a>
+
+```typescript
+public readonly role: InternalRole;
+```
 
 - *Type:* [`@smallcase/aws-cdk-microservice.InternalRole`](#@smallcase/aws-cdk-microservice.InternalRole)
 
@@ -468,11 +656,19 @@ const instanceStackProps: InstanceStackProps = { ... }
 
 ##### `securityGroup`<sup>Optional</sup> <a name="@smallcase/aws-cdk-microservice.InstanceStackProps.property.securityGroup"></a>
 
+```typescript
+public readonly securityGroup: InternalSG;
+```
+
 - *Type:* [`@smallcase/aws-cdk-microservice.InternalSG`](#@smallcase/aws-cdk-microservice.InternalSG)
 
 ---
 
 ##### `tags`<sup>Optional</sup> <a name="@smallcase/aws-cdk-microservice.InstanceStackProps.property.tags"></a>
+
+```typescript
+public readonly tags: {[ key: string ]: string};
+```
 
 - *Type:* {[ key: string ]: `string`}
 
@@ -480,11 +676,19 @@ const instanceStackProps: InstanceStackProps = { ... }
 
 ##### `targetGroupProps`<sup>Optional</sup> <a name="@smallcase/aws-cdk-microservice.InstanceStackProps.property.targetGroupProps"></a>
 
+```typescript
+public readonly targetGroupProps: NetworkTargetGroupProps;
+```
+
 - *Type:* [`@aws-cdk/aws-elasticloadbalancingv2.NetworkTargetGroupProps`](#@aws-cdk/aws-elasticloadbalancingv2.NetworkTargetGroupProps)
 
 ---
 
 ##### `vpc`<sup>Optional</sup> <a name="@smallcase/aws-cdk-microservice.InstanceStackProps.property.vpc"></a>
+
+```typescript
+public readonly vpc: InternalVPC;
+```
 
 - *Type:* [`@smallcase/aws-cdk-microservice.InternalVPC`](#@smallcase/aws-cdk-microservice.InternalVPC)
 
@@ -502,17 +706,29 @@ const internalBD: InternalBD = { ... }
 
 ##### `name`<sup>Required</sup> <a name="@smallcase/aws-cdk-microservice.InternalBD.property.name"></a>
 
+```typescript
+public readonly name: string;
+```
+
 - *Type:* `string`
 
 ---
 
 ##### `size`<sup>Required</sup> <a name="@smallcase/aws-cdk-microservice.InternalBD.property.size"></a>
 
+```typescript
+public readonly size: number;
+```
+
 - *Type:* `number`
 
 ---
 
 ##### `type`<sup>Required</sup> <a name="@smallcase/aws-cdk-microservice.InternalBD.property.type"></a>
+
+```typescript
+public readonly type: EbsDeviceVolumeType;
+```
 
 - *Type:* [`@aws-cdk/aws-ec2.EbsDeviceVolumeType`](#@aws-cdk/aws-ec2.EbsDeviceVolumeType)
 
@@ -530,11 +746,19 @@ const internalLaunchTemplateProps: InternalLaunchTemplateProps = { ... }
 
 ##### `amiImageId`<sup>Required</sup> <a name="@smallcase/aws-cdk-microservice.InternalLaunchTemplateProps.property.amiImageId"></a>
 
+```typescript
+public readonly amiImageId: string;
+```
+
 - *Type:* `string`
 
 ---
 
 ##### `blockDevice`<sup>Required</sup> <a name="@smallcase/aws-cdk-microservice.InternalLaunchTemplateProps.property.blockDevice"></a>
+
+```typescript
+public readonly blockDevice: InternalBD;
+```
 
 - *Type:* [`@smallcase/aws-cdk-microservice.InternalBD`](#@smallcase/aws-cdk-microservice.InternalBD)
 
@@ -542,11 +766,19 @@ const internalLaunchTemplateProps: InternalLaunchTemplateProps = { ... }
 
 ##### `detailedMonitoring`<sup>Required</sup> <a name="@smallcase/aws-cdk-microservice.InternalLaunchTemplateProps.property.detailedMonitoring"></a>
 
+```typescript
+public readonly detailedMonitoring: boolean;
+```
+
 - *Type:* `boolean`
 
 ---
 
 ##### `instanceType`<sup>Required</sup> <a name="@smallcase/aws-cdk-microservice.InternalLaunchTemplateProps.property.instanceType"></a>
+
+```typescript
+public readonly instanceType: string;
+```
 
 - *Type:* `string`
 
@@ -554,11 +786,19 @@ const internalLaunchTemplateProps: InternalLaunchTemplateProps = { ... }
 
 ##### `role`<sup>Required</sup> <a name="@smallcase/aws-cdk-microservice.InternalLaunchTemplateProps.property.role"></a>
 
+```typescript
+public readonly role: InternalRole;
+```
+
 - *Type:* [`@smallcase/aws-cdk-microservice.InternalRole`](#@smallcase/aws-cdk-microservice.InternalRole)
 
 ---
 
 ##### `securityGroup`<sup>Required</sup> <a name="@smallcase/aws-cdk-microservice.InternalLaunchTemplateProps.property.securityGroup"></a>
+
+```typescript
+public readonly securityGroup: InternalSG;
+```
 
 - *Type:* [`@smallcase/aws-cdk-microservice.InternalSG`](#@smallcase/aws-cdk-microservice.InternalSG)
 
@@ -566,11 +806,19 @@ const internalLaunchTemplateProps: InternalLaunchTemplateProps = { ... }
 
 ##### `sshKey`<sup>Required</sup> <a name="@smallcase/aws-cdk-microservice.InternalLaunchTemplateProps.property.sshKey"></a>
 
+```typescript
+public readonly sshKey: string;
+```
+
 - *Type:* `string`
 
 ---
 
 ##### `templateName`<sup>Required</sup> <a name="@smallcase/aws-cdk-microservice.InternalLaunchTemplateProps.property.templateName"></a>
+
+```typescript
+public readonly templateName: string;
+```
 
 - *Type:* `string`
 
@@ -578,11 +826,19 @@ const internalLaunchTemplateProps: InternalLaunchTemplateProps = { ... }
 
 ##### `type`<sup>Required</sup> <a name="@smallcase/aws-cdk-microservice.InternalLaunchTemplateProps.property.type"></a>
 
+```typescript
+public readonly type: string;
+```
+
 - *Type:* `string`
 
 ---
 
 ##### `vpc`<sup>Required</sup> <a name="@smallcase/aws-cdk-microservice.InternalLaunchTemplateProps.property.vpc"></a>
+
+```typescript
+public readonly vpc: InternalVPC;
+```
 
 - *Type:* [`@smallcase/aws-cdk-microservice.InternalVPC`](#@smallcase/aws-cdk-microservice.InternalVPC)
 
@@ -590,11 +846,19 @@ const internalLaunchTemplateProps: InternalLaunchTemplateProps = { ... }
 
 ##### `existingAttributes`<sup>Optional</sup> <a name="@smallcase/aws-cdk-microservice.InternalLaunchTemplateProps.property.existingAttributes"></a>
 
+```typescript
+public readonly existingAttributes: LaunchTemplateAttributes;
+```
+
 - *Type:* [`@aws-cdk/aws-ec2.LaunchTemplateAttributes`](#@aws-cdk/aws-ec2.LaunchTemplateAttributes)
 
 ---
 
 ##### `instanceVolumeSize`<sup>Optional</sup> <a name="@smallcase/aws-cdk-microservice.InternalLaunchTemplateProps.property.instanceVolumeSize"></a>
+
+```typescript
+public readonly instanceVolumeSize: BlockDevice;
+```
 
 - *Type:* [`@aws-cdk/aws-ec2.BlockDevice`](#@aws-cdk/aws-ec2.BlockDevice)
 
@@ -612,11 +876,19 @@ const internalRole: InternalRole = { ... }
 
 ##### `type`<sup>Required</sup> <a name="@smallcase/aws-cdk-microservice.InternalRole.property.type"></a>
 
+```typescript
+public readonly type: string;
+```
+
 - *Type:* `string`
 
 ---
 
 ##### `additionalPolicies`<sup>Optional</sup> <a name="@smallcase/aws-cdk-microservice.InternalRole.property.additionalPolicies"></a>
+
+```typescript
+public readonly additionalPolicies: any[];
+```
 
 - *Type:* `any`[]
 
@@ -624,11 +896,19 @@ const internalRole: InternalRole = { ... }
 
 ##### `roleArn`<sup>Optional</sup> <a name="@smallcase/aws-cdk-microservice.InternalRole.property.roleArn"></a>
 
+```typescript
+public readonly roleArn: string;
+```
+
 - *Type:* `string`
 
 ---
 
 ##### `roleName`<sup>Optional</sup> <a name="@smallcase/aws-cdk-microservice.InternalRole.property.roleName"></a>
+
+```typescript
+public readonly roleName: string;
+```
 
 - *Type:* `string`
 
@@ -646,11 +926,19 @@ const internalSG: InternalSG = { ... }
 
 ##### `type`<sup>Required</sup> <a name="@smallcase/aws-cdk-microservice.InternalSG.property.type"></a>
 
+```typescript
+public readonly type: string;
+```
+
 - *Type:* `string`
 
 ---
 
 ##### `allowAllOutbound`<sup>Optional</sup> <a name="@smallcase/aws-cdk-microservice.InternalSG.property.allowAllOutbound"></a>
+
+```typescript
+public readonly allowAllOutbound: boolean;
+```
 
 - *Type:* `boolean`
 
@@ -658,11 +946,19 @@ const internalSG: InternalSG = { ... }
 
 ##### `description`<sup>Optional</sup> <a name="@smallcase/aws-cdk-microservice.InternalSG.property.description"></a>
 
+```typescript
+public readonly description: string;
+```
+
 - *Type:* `string`
 
 ---
 
 ##### `disableInlineRules`<sup>Optional</sup> <a name="@smallcase/aws-cdk-microservice.InternalSG.property.disableInlineRules"></a>
+
+```typescript
+public readonly disableInlineRules: boolean;
+```
 
 - *Type:* `boolean`
 
@@ -670,17 +966,29 @@ const internalSG: InternalSG = { ... }
 
 ##### `ingressRules`<sup>Optional</sup> <a name="@smallcase/aws-cdk-microservice.InternalSG.property.ingressRules"></a>
 
+```typescript
+public readonly ingressRules: IngressRule[];
+```
+
 - *Type:* [`@smallcase/aws-cdk-microservice.IngressRule`](#@smallcase/aws-cdk-microservice.IngressRule)[]
 
 ---
 
 ##### `securityGroupName`<sup>Optional</sup> <a name="@smallcase/aws-cdk-microservice.InternalSG.property.securityGroupName"></a>
 
+```typescript
+public readonly securityGroupName: string;
+```
+
 - *Type:* `string`
 
 ---
 
 ##### `sgGroupId`<sup>Optional</sup> <a name="@smallcase/aws-cdk-microservice.InternalSG.property.sgGroupId"></a>
+
+```typescript
+public readonly sgGroupId: string;
+```
 
 - *Type:* `string`
 
@@ -698,17 +1006,29 @@ const internalVPC: InternalVPC = { ... }
 
 ##### `type`<sup>Required</sup> <a name="@smallcase/aws-cdk-microservice.InternalVPC.property.type"></a>
 
+```typescript
+public readonly type: string;
+```
+
 - *Type:* `string`
 
 ---
 
 ##### `vpcName`<sup>Required</sup> <a name="@smallcase/aws-cdk-microservice.InternalVPC.property.vpcName"></a>
 
+```typescript
+public readonly vpcName: string;
+```
+
 - *Type:* `string`
 
 ---
 
 ##### `vpcProps`<sup>Optional</sup> <a name="@smallcase/aws-cdk-microservice.InternalVPC.property.vpcProps"></a>
+
+```typescript
+public readonly vpcProps: VpcProps;
+```
 
 - *Type:* [`@aws-cdk/aws-ec2.VpcProps`](#@aws-cdk/aws-ec2.VpcProps)
 
@@ -726,11 +1046,19 @@ const loadBalancerProps: LoadBalancerProps = { ... }
 
 ##### `appName`<sup>Required</sup> <a name="@smallcase/aws-cdk-microservice.LoadBalancerProps.property.appName"></a>
 
+```typescript
+public readonly appName: string;
+```
+
 - *Type:* `string`
 
 ---
 
 ##### `hostHeader`<sup>Required</sup> <a name="@smallcase/aws-cdk-microservice.LoadBalancerProps.property.hostHeader"></a>
+
+```typescript
+public readonly hostHeader: string;
+```
 
 - *Type:* `string`
 
@@ -738,17 +1066,29 @@ const loadBalancerProps: LoadBalancerProps = { ... }
 
 ##### `lbArn`<sup>Required</sup> <a name="@smallcase/aws-cdk-microservice.LoadBalancerProps.property.lbArn"></a>
 
+```typescript
+public readonly lbArn: string;
+```
+
 - *Type:* `string`
 
 ---
 
 ##### `sslEnabled`<sup>Required</sup> <a name="@smallcase/aws-cdk-microservice.LoadBalancerProps.property.sslEnabled"></a>
 
+```typescript
+public readonly sslEnabled: boolean;
+```
+
 - *Type:* `boolean`
 
 ---
 
 ##### `targetGroupArn`<sup>Required</sup> <a name="@smallcase/aws-cdk-microservice.LoadBalancerProps.property.targetGroupArn"></a>
+
+```typescript
+public readonly targetGroupArn: string;
+```
 
 - *Type:* `string`
 
@@ -766,11 +1106,19 @@ const microServiceProps: MicroServiceProps = { ... }
 
 ##### `appName`<sup>Required</sup> <a name="@smallcase/aws-cdk-microservice.MicroServiceProps.property.appName"></a>
 
+```typescript
+public readonly appName: string;
+```
+
 - *Type:* `string`
 
 ---
 
 ##### `env`<sup>Required</sup> <a name="@smallcase/aws-cdk-microservice.MicroServiceProps.property.env"></a>
+
+```typescript
+public readonly env: string;
+```
 
 - *Type:* `string`
 
@@ -778,11 +1126,19 @@ const microServiceProps: MicroServiceProps = { ... }
 
 ##### `role`<sup>Required</sup> <a name="@smallcase/aws-cdk-microservice.MicroServiceProps.property.role"></a>
 
+```typescript
+public readonly role: InternalRole;
+```
+
 - *Type:* [`@smallcase/aws-cdk-microservice.InternalRole`](#@smallcase/aws-cdk-microservice.InternalRole)
 
 ---
 
 ##### `sshKey`<sup>Required</sup> <a name="@smallcase/aws-cdk-microservice.MicroServiceProps.property.sshKey"></a>
+
+```typescript
+public readonly sshKey: string;
+```
 
 - *Type:* `string`
 
@@ -790,11 +1146,19 @@ const microServiceProps: MicroServiceProps = { ... }
 
 ##### `subnets`<sup>Required</sup> <a name="@smallcase/aws-cdk-microservice.MicroServiceProps.property.subnets"></a>
 
+```typescript
+public readonly subnets: string[];
+```
+
 - *Type:* `string`[]
 
 ---
 
 ##### `vpc`<sup>Required</sup> <a name="@smallcase/aws-cdk-microservice.MicroServiceProps.property.vpc"></a>
+
+```typescript
+public readonly vpc: string;
+```
 
 - *Type:* `string`
 
@@ -802,11 +1166,19 @@ const microServiceProps: MicroServiceProps = { ... }
 
 ##### `ami`<sup>Optional</sup> <a name="@smallcase/aws-cdk-microservice.MicroServiceProps.property.ami"></a>
 
+```typescript
+public readonly ami: string;
+```
+
 - *Type:* `string`
 
 ---
 
 ##### `applicationType`<sup>Optional</sup> <a name="@smallcase/aws-cdk-microservice.MicroServiceProps.property.applicationType"></a>
+
+```typescript
+public readonly applicationType: string;
+```
 
 - *Type:* `string`
 
@@ -814,11 +1186,19 @@ const microServiceProps: MicroServiceProps = { ... }
 
 ##### `asgMaxSize`<sup>Optional</sup> <a name="@smallcase/aws-cdk-microservice.MicroServiceProps.property.asgMaxSize"></a>
 
+```typescript
+public readonly asgMaxSize: string;
+```
+
 - *Type:* `string`
 
 ---
 
 ##### `asgMinSize`<sup>Optional</sup> <a name="@smallcase/aws-cdk-microservice.MicroServiceProps.property.asgMinSize"></a>
+
+```typescript
+public readonly asgMinSize: string;
+```
 
 - *Type:* `string`
 
@@ -826,11 +1206,19 @@ const microServiceProps: MicroServiceProps = { ... }
 
 ##### `createCodedeployApplication`<sup>Optional</sup> <a name="@smallcase/aws-cdk-microservice.MicroServiceProps.property.createCodedeployApplication"></a>
 
+```typescript
+public readonly createCodedeployApplication: boolean;
+```
+
 - *Type:* `boolean`
 
 ---
 
 ##### `deploymentPolicies`<sup>Optional</sup> <a name="@smallcase/aws-cdk-microservice.MicroServiceProps.property.deploymentPolicies"></a>
+
+```typescript
+public readonly deploymentPolicies: string[];
+```
 
 - *Type:* `string`[]
 
@@ -838,11 +1226,19 @@ const microServiceProps: MicroServiceProps = { ... }
 
 ##### `diskSize`<sup>Optional</sup> <a name="@smallcase/aws-cdk-microservice.MicroServiceProps.property.diskSize"></a>
 
+```typescript
+public readonly diskSize: number;
+```
+
 - *Type:* `number`
 
 ---
 
 ##### `diskType`<sup>Optional</sup> <a name="@smallcase/aws-cdk-microservice.MicroServiceProps.property.diskType"></a>
+
+```typescript
+public readonly diskType: string;
+```
 
 - *Type:* `string`
 
@@ -850,11 +1246,19 @@ const microServiceProps: MicroServiceProps = { ... }
 
 ##### `healthCheckPath`<sup>Optional</sup> <a name="@smallcase/aws-cdk-microservice.MicroServiceProps.property.healthCheckPath"></a>
 
+```typescript
+public readonly healthCheckPath: string;
+```
+
 - *Type:* `string`
 
 ---
 
 ##### `host`<sup>Optional</sup> <a name="@smallcase/aws-cdk-microservice.MicroServiceProps.property.host"></a>
+
+```typescript
+public readonly host: string;
+```
 
 - *Type:* `string`
 
@@ -862,11 +1266,19 @@ const microServiceProps: MicroServiceProps = { ... }
 
 ##### `instanceLabels`<sup>Optional</sup> <a name="@smallcase/aws-cdk-microservice.MicroServiceProps.property.instanceLabels"></a>
 
+```typescript
+public readonly instanceLabels: TagPropertyProperty[];
+```
+
 - *Type:* [`@aws-cdk/aws-autoscaling.CfnAutoScalingGroup.TagPropertyProperty`](#@aws-cdk/aws-autoscaling.CfnAutoScalingGroup.TagPropertyProperty)[]
 
 ---
 
 ##### `instanceType`<sup>Optional</sup> <a name="@smallcase/aws-cdk-microservice.MicroServiceProps.property.instanceType"></a>
+
+```typescript
+public readonly instanceType: string;
+```
 
 - *Type:* `string`
 
@@ -874,11 +1286,19 @@ const microServiceProps: MicroServiceProps = { ... }
 
 ##### `lbArn`<sup>Optional</sup> <a name="@smallcase/aws-cdk-microservice.MicroServiceProps.property.lbArn"></a>
 
+```typescript
+public readonly lbArn: string;
+```
+
 - *Type:* `string`
 
 ---
 
 ##### `port`<sup>Optional</sup> <a name="@smallcase/aws-cdk-microservice.MicroServiceProps.property.port"></a>
+
+```typescript
+public readonly port: number;
+```
 
 - *Type:* `number`
 
@@ -886,11 +1306,19 @@ const microServiceProps: MicroServiceProps = { ... }
 
 ##### `protocol`<sup>Optional</sup> <a name="@smallcase/aws-cdk-microservice.MicroServiceProps.property.protocol"></a>
 
+```typescript
+public readonly protocol: string;
+```
+
 - *Type:* `string`
 
 ---
 
 ##### `securityGroupProps`<sup>Optional</sup> <a name="@smallcase/aws-cdk-microservice.MicroServiceProps.property.securityGroupProps"></a>
+
+```typescript
+public readonly securityGroupProps: InternalSG;
+```
 
 - *Type:* [`@smallcase/aws-cdk-microservice.InternalSG`](#@smallcase/aws-cdk-microservice.InternalSG)
 
@@ -898,11 +1326,19 @@ const microServiceProps: MicroServiceProps = { ... }
 
 ##### `sslEnabled`<sup>Optional</sup> <a name="@smallcase/aws-cdk-microservice.MicroServiceProps.property.sslEnabled"></a>
 
+```typescript
+public readonly sslEnabled: boolean;
+```
+
 - *Type:* `boolean`
 
 ---
 
 ##### `tcpRules`<sup>Optional</sup> <a name="@smallcase/aws-cdk-microservice.MicroServiceProps.property.tcpRules"></a>
+
+```typescript
+public readonly tcpRules: IngressRule[];
+```
 
 - *Type:* [`@smallcase/aws-cdk-microservice.IngressRule`](#@smallcase/aws-cdk-microservice.IngressRule)[]
 
@@ -920,11 +1356,19 @@ const targetGroupProps: TargetGroupProps = { ... }
 
 ##### `type`<sup>Required</sup> <a name="@smallcase/aws-cdk-microservice.TargetGroupProps.property.type"></a>
 
+```typescript
+public readonly type: string;
+```
+
 - *Type:* `string`
 
 ---
 
 ##### `healthPath`<sup>Optional</sup> <a name="@smallcase/aws-cdk-microservice.TargetGroupProps.property.healthPath"></a>
+
+```typescript
+public readonly healthPath: string;
+```
 
 - *Type:* `string`
 
@@ -932,11 +1376,19 @@ const targetGroupProps: TargetGroupProps = { ... }
 
 ##### `name`<sup>Optional</sup> <a name="@smallcase/aws-cdk-microservice.TargetGroupProps.property.name"></a>
 
+```typescript
+public readonly name: string;
+```
+
 - *Type:* `string`
 
 ---
 
 ##### `port`<sup>Optional</sup> <a name="@smallcase/aws-cdk-microservice.TargetGroupProps.property.port"></a>
+
+```typescript
+public readonly port: number;
+```
 
 - *Type:* `number`
 
@@ -944,11 +1396,19 @@ const targetGroupProps: TargetGroupProps = { ... }
 
 ##### `protocol`<sup>Optional</sup> <a name="@smallcase/aws-cdk-microservice.TargetGroupProps.property.protocol"></a>
 
+```typescript
+public readonly protocol: string;
+```
+
 - *Type:* `string`
 
 ---
 
 ##### `tgArn`<sup>Optional</sup> <a name="@smallcase/aws-cdk-microservice.TargetGroupProps.property.tgArn"></a>
+
+```typescript
+public readonly tgArn: string;
+```
 
 - *Type:* `string`
 
@@ -956,11 +1416,19 @@ const targetGroupProps: TargetGroupProps = { ... }
 
 ##### `thresholdCount`<sup>Optional</sup> <a name="@smallcase/aws-cdk-microservice.TargetGroupProps.property.thresholdCount"></a>
 
+```typescript
+public readonly thresholdCount: number;
+```
+
 - *Type:* `number`
 
 ---
 
 ##### `timeout`<sup>Optional</sup> <a name="@smallcase/aws-cdk-microservice.TargetGroupProps.property.timeout"></a>
+
+```typescript
+public readonly timeout: number;
+```
 
 - *Type:* `number`
 
