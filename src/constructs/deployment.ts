@@ -1,7 +1,5 @@
-// import { AutoScalingGroup, IAutoScalingGroup } from '@aws-cdk/aws-autoscaling';
-import { CfnDeploymentGroup, ServerApplication } from '@aws-cdk/aws-codedeploy';
-// import { Role } from '@aws-cdk/aws-iam';
-import * as cdk from '@aws-cdk/core';
+import { CfnDeploymentGroup, ServerApplication } from 'aws-cdk-lib/aws-codedeploy';
+import { Construct } from 'constructs';
 
 export interface ApplicationProps {
   readonly applicationName: string;
@@ -17,8 +15,8 @@ export interface DeploymentProps {
   readonly tgName: string;
 }
 
-export class Deployment extends cdk.Construct {
-  constructor(scope: cdk.Construct, id: string, props: DeploymentProps) {
+export class Deployment extends Construct {
+  constructor(scope: Construct, id: string, props: DeploymentProps) {
     super(scope, id);
 
     const app = this.getApp(props.applicationProps);

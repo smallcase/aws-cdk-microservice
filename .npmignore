@@ -7,8 +7,9 @@ junit.xml
 /dist/version.txt
 /.mergify.yml
 /test/
-!/lib/
+/tsconfig.dev.json
 /src/
+!/lib/
 !/lib/**/*.js
 !/lib/**/*.d.ts
 dist
@@ -18,7 +19,5 @@ dist
 /.idea/
 /.projenrc.js
 tsconfig.tsbuildinfo
-/tsconfig.jest.json
 /.eslintrc.json
-/tsconfig.eslint.json
 !.jsii
