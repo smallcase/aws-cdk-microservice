@@ -1,9 +1,9 @@
-import { CfnAutoScalingGroup } from '@aws-cdk/aws-autoscaling';
-import { Vpc, BlockDeviceVolume, BlockDevice, InstanceType, LaunchTemplate, SecurityGroup, MachineImage, SecurityGroupProps, IVpc, EbsDeviceVolumeType, InstanceProps, LaunchTemplateAttributes, VpcProps, Port, Subnet } from '@aws-cdk/aws-ec2';
-import { CfnTargetGroup, NetworkTargetGroupProps } from '@aws-cdk/aws-elasticloadbalancingv2';
-import * as iam from '@aws-cdk/aws-iam';
-import { Effect, PolicyStatement, ServicePrincipal } from '@aws-cdk/aws-iam';
-import * as cdk from '@aws-cdk/core';
+import { Resource } from 'aws-cdk-lib';
+import { BlockDevice, BlockDeviceVolume, CfnAutoScalingGroup, EbsDeviceVolumeType } from 'aws-cdk-lib/aws-autoscaling';
+import { InstanceProps, InstanceType, IVpc, LaunchTemplate, LaunchTemplateAttributes, MachineImage, Port, SecurityGroup, SecurityGroupProps, Subnet, Vpc, VpcProps } from 'aws-cdk-lib/aws-ec2';
+import { CfnTargetGroup, NetworkTargetGroupProps } from 'aws-cdk-lib/aws-elasticloadbalancingv2';
+import { Effect, PolicyStatement, Role, ServicePrincipal } from 'aws-cdk-lib/aws-iam';
+import { Construct } from 'constructs';
 import { LoadBalancerProps } from './network';
 
 export interface InternalVPC {
@@ -97,9 +97,9 @@ export interface AutoScalerProps {
   readonly appName: string;
 }
 
-export class AutoScaler extends cdk.Resource {
+export class AutoScaler extends Resource {
   public readonly loadBalancerProperties?: LoadBalancerProps[];
-  constructor(scope: cdk.Construct, id: string, props: AutoScalerProps) {
+  constructor(scope: Construct, id: string, props: AutoScalerProps) {
     super(scope, id);
 
     const launchTemplate = this.getLT(props.templateProps, props.asgName);
@@ -132,10 +132,10 @@ export class AutoScaler extends cdk.Resource {
 
   private getRole(props: InternalRole, asgName: string) {
     if (props.type == 'existing') {
-      const role = iam.Role.fromRoleArn(this, asgName + '-stackRole', props.roleArn!);
+      const role = Role.fromRoleArn(this, asgName + '-stackRole', props.roleArn!);
       return role;
     } else {
-      const role = new iam.Role(this, asgName + '-stackRole', {
+      const role = new Role(this, asgName + '-stackRole', {
         assumedBy: new ServicePrincipal('ec2.amazonaws.com'),
         roleName: asgName + '-role',
       });

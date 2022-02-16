@@ -1,5 +1,6 @@
-import { ApplicationListener, ApplicationProtocol, CfnListenerRule } from '@aws-cdk/aws-elasticloadbalancingv2';
-import * as cdk from '@aws-cdk/core';
+import { Resource } from 'aws-cdk-lib';
+import { ApplicationListener, ApplicationProtocol, CfnListenerRule } from 'aws-cdk-lib/aws-elasticloadbalancingv2';
+import { Construct } from 'constructs';
 
 export interface LoadBalancerProps {
   readonly appName: string;
@@ -9,8 +10,8 @@ export interface LoadBalancerProps {
   readonly sslEnabled: boolean;
 }
 
-export class BalancerEntry extends cdk.Resource {
-  constructor(scope: cdk.Construct, id: string, props: LoadBalancerProps) {
+export class BalancerEntry extends Resource {
+  constructor(scope: Construct, id: string, props: LoadBalancerProps) {
     super(scope, id);
     const listeners = this.getLoadBalancerListener(props.lbArn, props.sslEnabled, props.appName);
     if (props.sslEnabled) {

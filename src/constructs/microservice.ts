@@ -1,7 +1,6 @@
-import { CfnAutoScalingGroup } from '@aws-cdk/aws-autoscaling';
-import { EbsDeviceVolumeType } from '@aws-cdk/aws-ec2';
-import { Effect, PolicyStatement, Role, ServicePrincipal } from '@aws-cdk/aws-iam';
-import { Construct } from '@aws-cdk/core';
+import { CfnAutoScalingGroup, EbsDeviceVolumeType } from 'aws-cdk-lib/aws-autoscaling';
+import { Effect, PolicyStatement, Role, ServicePrincipal } from 'aws-cdk-lib/aws-iam';
+import { Construct } from 'constructs';
 import { AutoScaler, IngressRule, NetworkProps, InternalSG, TargetGroupProps, InternalRole } from './autoScalingGroup';
 import { Deployment } from './deployment';
 import { BalancerEntry } from './network';
