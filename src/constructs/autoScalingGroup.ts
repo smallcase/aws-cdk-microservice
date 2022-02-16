@@ -4,11 +4,21 @@ import { CfnTargetGroup, NetworkTargetGroupProps } from '@aws-cdk/aws-elasticloa
 import * as iam from '@aws-cdk/aws-iam';
 import { Effect, PolicyStatement, ServicePrincipal } from '@aws-cdk/aws-iam';
 import * as cdk from '@aws-cdk/core';
+import { LoadBalancerProps } from './network';
 
 export interface InternalVPC {
   readonly type: string;
   readonly vpcName: string;
   readonly vpcProps?: VpcProps;
+}
+
+export interface NetworkProps {
+  readonly protocol: string;
+  readonly port: number;
+  readonly healthCheckPath: string;
+  readonly sslEnabled: boolean;
+  readonly host: string;
+  readonly lbArn: string;
 }
 
 export interface IngressRule {
@@ -83,15 +93,17 @@ export interface AutoScalerProps {
   readonly tags?: CfnAutoScalingGroup.TagPropertyProperty[];
   readonly tgProps?: TargetGroupProps;
   readonly subnets: string[];
+  readonly networkProps: NetworkProps[];
+  readonly appName: string;
 }
 
 export class AutoScaler extends cdk.Resource {
-  public readonly targetGroupArn: string;
+  public readonly loadBalancerProperties?: LoadBalancerProps[];
   constructor(scope: cdk.Construct, id: string, props: AutoScalerProps) {
     super(scope, id);
 
     const launchTemplate = this.getLT(props.templateProps, props.asgName);
-    const tgArn = this.getTG(props.tgProps, props.templateProps.vpc.vpcName);
+    this.loadBalancerProperties = this.getTG(props.networkProps, props.templateProps.vpc.vpcName, props.appName);
 
     new CfnAutoScalingGroup(this, props.asgName, {
       maxSize: props.maxSize,
@@ -102,16 +114,12 @@ export class AutoScaler extends cdk.Resource {
         launchTemplateId: launchTemplate.launchTemplateId,
         launchTemplateName: launchTemplate.launchTemplateName,
       },
-      targetGroupArns: tgArn,
+      targetGroupArns: this.loadBalancerProperties.map( (lb) => { return lb.targetGroupArn; } ),
       tags: props.tags,
       availabilityZones: this.getZones(props.subnets),
       vpcZoneIdentifier: props.subnets,
       healthCheckGracePeriod: 300,
     });
-    if (tgArn.length) {
-      this.targetGroupArn = tgArn[0];
-    }
-    this.targetGroupArn = '';
   }
 
   private getVPC(props: InternalVPC) {
@@ -250,23 +258,32 @@ export class AutoScaler extends cdk.Resource {
     }
   }
 
-  private getTG(props: TargetGroupProps | undefined, vpcId: string) {
-    if (props != undefined) {
-      const tg = new CfnTargetGroup(this, props.name!, {
-        name: props.name,
+  private getTG(props: NetworkProps[], vpcId: string, appName: string) {
+    let lbProps: LoadBalancerProps[] = [];
+    props.forEach(t => {
+      const tg = new CfnTargetGroup(this, appName + t.port.toString(), {
+        name: appName + t.port?.toString(),
         healthCheckEnabled: true,
-        healthCheckPath: props.healthPath!,
-        ...((props.protocol == 'GRPC') ? { protocol: 'HTTP' } : { protocol: props.protocol }),
-        ...((props.protocol == 'GRPC') ? { protocolVersion: 'GRPC' } : {}),
-        healthCheckTimeoutSeconds: props.timeout!,
-        healthCheckPort: String(props.port!),
-        port: props.port!,
+        healthCheckPath: t.healthCheckPath!,
+        ...((t.protocol == 'GRPC') ? { protocol: 'HTTP' } : { protocol: t.protocol }),
+        ...((t.protocol == 'GRPC') ? { protocolVersion: 'GRPC' } : {}),
+        healthCheckTimeoutSeconds: 30,
+        healthCheckPort: String(t.port!),
+        port: t.port!,
         vpcId: vpcId,
       });
-      return [tg.ref];
-    } else {
-      return [];
-    }
+
+      lbProps.push({
+        appName: appName,
+        hostHeader: t.host,
+        lbArn: t.lbArn,
+        sslEnabled: t.sslEnabled,
+        targetGroupArn: tg.ref,
+      });
+
+    });
+
+    return lbProps;
   }
 
   private getZones(subnets: string[]) {
