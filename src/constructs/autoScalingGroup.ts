@@ -268,7 +268,7 @@ export class AutoScaler extends Resource {
         healthCheckPath: t.healthCheckPath!,
         ...((t.protocol == 'GRPC') ? { protocol: 'HTTP' } : { protocol: t.protocol }),
         ...((t.protocol == 'GRPC') ? { protocolVersion: 'GRPC' } : {}),
-        healthCheckTimeoutSeconds: 30,
+        healthCheckTimeoutSeconds: 5,
         healthCheckPort: String(t.port!),
         port: t.port!,
         vpcId: vpcId,

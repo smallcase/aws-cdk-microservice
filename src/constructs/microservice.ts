@@ -18,7 +18,7 @@ export interface MicroServiceProps {
   readonly diskSize?: number;
   readonly role: InternalRole;
   readonly tcpRules?: IngressRule[];
-  readonly ami?: string;
+  readonly ami: string;
   readonly sshKey: string;
   readonly diskType?: string;
   readonly createCodedeployApplication?: boolean;
@@ -84,7 +84,7 @@ export class MicroService extends Construct {
         instanceType: this.instanceType,
         detailedMonitoring: false,
         templateName: resourceNamePrefix + '-LT',
-        amiImageId: props.ami ?? 'Ubuntu Server 20.04 LTS (HVM), SSD Volume Type',
+        amiImageId: props.ami,
         type: 'new',
         blockDevice: {
           size: this.diskSize,

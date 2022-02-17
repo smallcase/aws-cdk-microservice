@@ -1649,13 +1649,13 @@ const microServiceProps: MicroServiceProps = { ... }
 
 | **Name** | **Type** | **Description** |
 | --- | --- | --- |
+| <code><a href="#@smallcase/aws-cdk-microservice.MicroServiceProps.property.ami">ami</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#@smallcase/aws-cdk-microservice.MicroServiceProps.property.appName">appName</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#@smallcase/aws-cdk-microservice.MicroServiceProps.property.env">env</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#@smallcase/aws-cdk-microservice.MicroServiceProps.property.role">role</a></code> | <code><a href="#@smallcase/aws-cdk-microservice.InternalRole">InternalRole</a></code> | *No description.* |
 | <code><a href="#@smallcase/aws-cdk-microservice.MicroServiceProps.property.sshKey">sshKey</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#@smallcase/aws-cdk-microservice.MicroServiceProps.property.subnets">subnets</a></code> | <code>string[]</code> | *No description.* |
 | <code><a href="#@smallcase/aws-cdk-microservice.MicroServiceProps.property.vpc">vpc</a></code> | <code>string</code> | *No description.* |
-| <code><a href="#@smallcase/aws-cdk-microservice.MicroServiceProps.property.ami">ami</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#@smallcase/aws-cdk-microservice.MicroServiceProps.property.applicationType">applicationType</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#@smallcase/aws-cdk-microservice.MicroServiceProps.property.asgMaxSize">asgMaxSize</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#@smallcase/aws-cdk-microservice.MicroServiceProps.property.asgMinSize">asgMinSize</a></code> | <code>string</code> | *No description.* |
@@ -1668,6 +1668,16 @@ const microServiceProps: MicroServiceProps = { ... }
 | <code><a href="#@smallcase/aws-cdk-microservice.MicroServiceProps.property.networkProps">networkProps</a></code> | <code><a href="#@smallcase/aws-cdk-microservice.NetworkProps">NetworkProps</a>[]</code> | *No description.* |
 | <code><a href="#@smallcase/aws-cdk-microservice.MicroServiceProps.property.securityGroupProps">securityGroupProps</a></code> | <code><a href="#@smallcase/aws-cdk-microservice.InternalSG">InternalSG</a></code> | *No description.* |
 | <code><a href="#@smallcase/aws-cdk-microservice.MicroServiceProps.property.tcpRules">tcpRules</a></code> | <code><a href="#@smallcase/aws-cdk-microservice.IngressRule">IngressRule</a>[]</code> | *No description.* |
+
+---
+
+##### `ami`<sup>Required</sup> <a name="ami" id="@smallcase/aws-cdk-microservice.MicroServiceProps.property.ami"></a>
+
+```typescript
+public readonly ami: string;
+```
+
+- *Type:* string
 
 ---
 
@@ -1725,16 +1735,6 @@ public readonly subnets: string[];
 
 ```typescript
 public readonly vpc: string;
-```
-
-- *Type:* string
-
----
-
-##### `ami`<sup>Optional</sup> <a name="ami" id="@smallcase/aws-cdk-microservice.MicroServiceProps.property.ami"></a>
-
-```typescript
-public readonly ami: string;
 ```
 
 - *Type:* string
