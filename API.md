@@ -1571,6 +1571,7 @@ const loadBalancerProps: LoadBalancerProps = { ... }
 | <code><a href="#@smallcase/aws-cdk-microservice.LoadBalancerProps.property.lbArn">lbArn</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#@smallcase/aws-cdk-microservice.LoadBalancerProps.property.sslEnabled">sslEnabled</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#@smallcase/aws-cdk-microservice.LoadBalancerProps.property.targetGroupArn">targetGroupArn</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@smallcase/aws-cdk-microservice.LoadBalancerProps.property.zoneName">zoneName</a></code> | <code>string</code> | *No description.* |
 
 ---
 
@@ -1618,6 +1619,16 @@ public readonly sslEnabled: boolean;
 
 ```typescript
 public readonly targetGroupArn: string;
+```
+
+- *Type:* string
+
+---
+
+##### `zoneName`<sup>Required</sup> <a name="zoneName" id="@smallcase/aws-cdk-microservice.LoadBalancerProps.property.zoneName"></a>
+
+```typescript
+public readonly zoneName: string;
 ```
 
 - *Type:* string
@@ -1870,6 +1881,7 @@ const networkProps: NetworkProps = { ... }
 | <code><a href="#@smallcase/aws-cdk-microservice.NetworkProps.property.port">port</a></code> | <code>number</code> | *No description.* |
 | <code><a href="#@smallcase/aws-cdk-microservice.NetworkProps.property.protocol">protocol</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#@smallcase/aws-cdk-microservice.NetworkProps.property.sslEnabled">sslEnabled</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#@smallcase/aws-cdk-microservice.NetworkProps.property.zoneName">zoneName</a></code> | <code>string</code> | *No description.* |
 
 ---
 
@@ -1930,6 +1942,16 @@ public readonly sslEnabled: boolean;
 ```
 
 - *Type:* boolean
+
+---
+
+##### `zoneName`<sup>Required</sup> <a name="zoneName" id="@smallcase/aws-cdk-microservice.NetworkProps.property.zoneName"></a>
+
+```typescript
+public readonly zoneName: string;
+```
+
+- *Type:* string
 
 ---
 

@@ -19,6 +19,7 @@ export interface NetworkProps {
   readonly sslEnabled: boolean;
   readonly host: string;
   readonly lbArn: string;
+  readonly zoneName: string;
 }
 
 export interface IngressRule {
@@ -279,6 +280,7 @@ export class AutoScaler extends Resource {
         lbArn: t.lbArn,
         sslEnabled: t.sslEnabled,
         targetGroupArn: tg.ref,
+        zoneName: t.zoneName,
       });
 
     });
