@@ -810,6 +810,7 @@ const autoScalerProps: AutoScalerProps = { ... }
 | --- | --- | --- |
 | <code><a href="#@smallcase/aws-cdk-microservice.AutoScalerProps.property.appName">appName</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#@smallcase/aws-cdk-microservice.AutoScalerProps.property.asgName">asgName</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@smallcase/aws-cdk-microservice.AutoScalerProps.property.availabilityZones">availabilityZones</a></code> | <code>string[]</code> | *No description.* |
 | <code><a href="#@smallcase/aws-cdk-microservice.AutoScalerProps.property.maxSize">maxSize</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#@smallcase/aws-cdk-microservice.AutoScalerProps.property.minSize">minSize</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#@smallcase/aws-cdk-microservice.AutoScalerProps.property.networkProps">networkProps</a></code> | <code><a href="#@smallcase/aws-cdk-microservice.NetworkProps">NetworkProps</a>[]</code> | *No description.* |
@@ -837,6 +838,16 @@ public readonly asgName: string;
 ```
 
 - *Type:* string
+
+---
+
+##### `availabilityZones`<sup>Required</sup> <a name="availabilityZones" id="@smallcase/aws-cdk-microservice.AutoScalerProps.property.availabilityZones"></a>
+
+```typescript
+public readonly availabilityZones: string[];
+```
+
+- *Type:* string[]
 
 ---
 
@@ -1571,6 +1582,7 @@ const loadBalancerProps: LoadBalancerProps = { ... }
 | <code><a href="#@smallcase/aws-cdk-microservice.LoadBalancerProps.property.lbArn">lbArn</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#@smallcase/aws-cdk-microservice.LoadBalancerProps.property.sslEnabled">sslEnabled</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#@smallcase/aws-cdk-microservice.LoadBalancerProps.property.targetGroupArn">targetGroupArn</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@smallcase/aws-cdk-microservice.LoadBalancerProps.property.zoneId">zoneId</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#@smallcase/aws-cdk-microservice.LoadBalancerProps.property.zoneName">zoneName</a></code> | <code>string</code> | *No description.* |
 
 ---
@@ -1625,6 +1637,16 @@ public readonly targetGroupArn: string;
 
 ---
 
+##### `zoneId`<sup>Required</sup> <a name="zoneId" id="@smallcase/aws-cdk-microservice.LoadBalancerProps.property.zoneId"></a>
+
+```typescript
+public readonly zoneId: string;
+```
+
+- *Type:* string
+
+---
+
 ##### `zoneName`<sup>Required</sup> <a name="zoneName" id="@smallcase/aws-cdk-microservice.LoadBalancerProps.property.zoneName"></a>
 
 ```typescript
@@ -1651,6 +1673,7 @@ const microServiceProps: MicroServiceProps = { ... }
 | --- | --- | --- |
 | <code><a href="#@smallcase/aws-cdk-microservice.MicroServiceProps.property.ami">ami</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#@smallcase/aws-cdk-microservice.MicroServiceProps.property.appName">appName</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@smallcase/aws-cdk-microservice.MicroServiceProps.property.availabilityZones">availabilityZones</a></code> | <code>string[]</code> | *No description.* |
 | <code><a href="#@smallcase/aws-cdk-microservice.MicroServiceProps.property.env">env</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#@smallcase/aws-cdk-microservice.MicroServiceProps.property.role">role</a></code> | <code><a href="#@smallcase/aws-cdk-microservice.InternalRole">InternalRole</a></code> | *No description.* |
 | <code><a href="#@smallcase/aws-cdk-microservice.MicroServiceProps.property.sshKey">sshKey</a></code> | <code>string</code> | *No description.* |
@@ -1688,6 +1711,16 @@ public readonly appName: string;
 ```
 
 - *Type:* string
+
+---
+
+##### `availabilityZones`<sup>Required</sup> <a name="availabilityZones" id="@smallcase/aws-cdk-microservice.MicroServiceProps.property.availabilityZones"></a>
+
+```typescript
+public readonly availabilityZones: string[];
+```
+
+- *Type:* string[]
 
 ---
 
@@ -1881,6 +1914,7 @@ const networkProps: NetworkProps = { ... }
 | <code><a href="#@smallcase/aws-cdk-microservice.NetworkProps.property.port">port</a></code> | <code>number</code> | *No description.* |
 | <code><a href="#@smallcase/aws-cdk-microservice.NetworkProps.property.protocol">protocol</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#@smallcase/aws-cdk-microservice.NetworkProps.property.sslEnabled">sslEnabled</a></code> | <code>boolean</code> | *No description.* |
+| <code><a href="#@smallcase/aws-cdk-microservice.NetworkProps.property.zoneId">zoneId</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#@smallcase/aws-cdk-microservice.NetworkProps.property.zoneName">zoneName</a></code> | <code>string</code> | *No description.* |
 
 ---
@@ -1942,6 +1976,16 @@ public readonly sslEnabled: boolean;
 ```
 
 - *Type:* boolean
+
+---
+
+##### `zoneId`<sup>Required</sup> <a name="zoneId" id="@smallcase/aws-cdk-microservice.NetworkProps.property.zoneId"></a>
+
+```typescript
+public readonly zoneId: string;
+```
+
+- *Type:* string
 
 ---
 

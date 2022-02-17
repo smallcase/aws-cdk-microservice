@@ -1,6 +1,6 @@
 import { Resource } from 'aws-cdk-lib';
 import { BlockDevice, BlockDeviceVolume, CfnAutoScalingGroup, EbsDeviceVolumeType } from 'aws-cdk-lib/aws-autoscaling';
-import { InstanceProps, InstanceType, IVpc, LaunchTemplate, LaunchTemplateAttributes, MachineImage, Port, SecurityGroup, SecurityGroupProps, Subnet, Vpc, VpcProps } from 'aws-cdk-lib/aws-ec2';
+import { InstanceProps, InstanceType, IVpc, LaunchTemplate, LaunchTemplateAttributes, MachineImage, Port, SecurityGroup, SecurityGroupProps, Vpc, VpcProps } from 'aws-cdk-lib/aws-ec2';
 import { CfnTargetGroup, NetworkTargetGroupProps } from 'aws-cdk-lib/aws-elasticloadbalancingv2';
 import { Effect, PolicyStatement, Role, ServicePrincipal } from 'aws-cdk-lib/aws-iam';
 import { Construct } from 'constructs';
@@ -19,6 +19,7 @@ export interface NetworkProps {
   readonly sslEnabled: boolean;
   readonly host: string;
   readonly lbArn: string;
+  readonly zoneId: string;
   readonly zoneName: string;
 }
 
@@ -96,6 +97,7 @@ export interface AutoScalerProps {
   readonly subnets: string[];
   readonly networkProps: NetworkProps[];
   readonly appName: string;
+  readonly availabilityZones: string[];
 }
 
 export class AutoScaler extends Resource {
@@ -117,7 +119,7 @@ export class AutoScaler extends Resource {
       },
       targetGroupArns: this.loadBalancerProperties.map( (lb) => { return lb.targetGroupArn; } ),
       tags: props.tags,
-      availabilityZones: this.getZones(props.subnets),
+      availabilityZones: props.availabilityZones,
       vpcZoneIdentifier: props.subnets,
       healthCheckGracePeriod: 300,
     });
@@ -280,23 +282,12 @@ export class AutoScaler extends Resource {
         lbArn: t.lbArn,
         sslEnabled: t.sslEnabled,
         targetGroupArn: tg.ref,
+        zoneId: t.zoneId,
         zoneName: t.zoneName,
       });
 
     });
 
     return lbProps;
-  }
-
-  private getZones(subnets: string[]) {
-    var availabilityZones: string[] = [];
-    subnets.forEach(subnet => {
-      const net = Subnet.fromSubnetAttributes(this, subnet, {
-        availabilityZone: 'dummy',
-        subnetId: subnet,
-      });
-      availabilityZones.push(net.availabilityZone);
-    });
-    return availabilityZones;
   }
 }
