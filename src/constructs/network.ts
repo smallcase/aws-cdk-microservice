@@ -11,6 +11,7 @@ export interface LoadBalancerProps {
   readonly lbArn: string;
   readonly sslEnabled: boolean;
   readonly zoneName: string;
+  readonly zoneId: string;
 }
 
 export class BalancerEntry extends Resource {
@@ -84,7 +85,8 @@ export class BalancerEntry extends Resource {
     });
     new ARecord(this, 'record-' + props.hostHeader.split('.')[-2], {
       target: RecordTarget.fromAlias(new LoadBalancerTarget(lb)),
-      zone: new HostedZone(this, props.hostHeader + '-zone', {
+      zone: HostedZone.fromHostedZoneAttributes(this, props.hostHeader + '-zone', {
+        hostedZoneId: props.zoneId,
         zoneName: props.zoneName,
       }),
     });

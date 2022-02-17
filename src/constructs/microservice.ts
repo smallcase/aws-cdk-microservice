@@ -15,6 +15,7 @@ export interface MicroServiceProps {
   readonly instanceLabels?: CfnAutoScalingGroup.TagPropertyProperty[];
   readonly vpc: string;
   readonly subnets: string[];
+  readonly availabilityZones: string[];
   readonly diskSize?: number;
   readonly role: InternalRole;
   readonly tcpRules?: IngressRule[];
@@ -89,7 +90,8 @@ export class MicroService extends Construct {
         blockDevice: {
           size: this.diskSize,
           name: '/dev/sda1',
-          type: this.getDiskType(this.diskType ?? 'GP3'),
+          // type: this.getDiskType(this.diskType ?? 'GP3'),
+          type: EbsDeviceVolumeType.GP3,
         },
         vpc: {
           type: 'existing',
@@ -106,6 +108,7 @@ export class MicroService extends Construct {
       },
       tags: props.instanceLabels,
       subnets: this.subnets,
+      availabilityZones: props.availabilityZones,
     });
 
     if (this.createCodedeployApplication) {
@@ -191,7 +194,4 @@ export class MicroService extends Construct {
     return role;
   }
 
-  private getDiskType(type: string) {
-    return type as EbsDeviceVolumeType;
-  }
 }
