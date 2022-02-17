@@ -1,5 +1,7 @@
 import { Resource } from 'aws-cdk-lib';
-import { ApplicationListener, ApplicationProtocol, CfnListenerRule } from 'aws-cdk-lib/aws-elasticloadbalancingv2';
+import { ApplicationListener, ApplicationLoadBalancer, ApplicationProtocol, CfnListenerRule } from 'aws-cdk-lib/aws-elasticloadbalancingv2';
+import { ARecord, HostedZone, RecordTarget } from 'aws-cdk-lib/aws-route53';
+import { LoadBalancerTarget } from 'aws-cdk-lib/aws-route53-targets';
 import { Construct } from 'constructs';
 
 export interface LoadBalancerProps {
@@ -8,6 +10,7 @@ export interface LoadBalancerProps {
   readonly targetGroupArn: string;
   readonly lbArn: string;
   readonly sslEnabled: boolean;
+  readonly zoneName: string;
 }
 
 export class BalancerEntry extends Resource {
@@ -53,6 +56,7 @@ export class BalancerEntry extends Resource {
         priority: Math.floor(Math.random() * (1000 - 200 + 1)) + 200, // this line is a flipping leap of faith
       });
     }
+    this.createRoute53Entry(props);
   }
 
   private getLoadBalancerListener(loadBalancerArn: string, sslEnabled: boolean, appName: string) {
@@ -72,5 +76,17 @@ export class BalancerEntry extends Resource {
       }).listenerArn);
     }
     return listeners;
+  }
+
+  private createRoute53Entry(props: LoadBalancerProps) {
+    const lb = ApplicationLoadBalancer.fromLookup(this, 'lb-' + props.lbArn, {
+      loadBalancerArn: props.lbArn,
+    });
+    new ARecord(this, 'record-' + props.hostHeader.split('.')[-2], {
+      target: RecordTarget.fromAlias(new LoadBalancerTarget(lb)),
+      zone: new HostedZone(this, props.hostHeader + '-zone', {
+        zoneName: props.zoneName,
+      }),
+    });
   }
 }

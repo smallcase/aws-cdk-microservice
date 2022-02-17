@@ -4,7 +4,7 @@ describe('my suite', () => {
   });
 });
 
-// import { App, Stack, StackProps } from '@aws-cdk/core';
+// import { App, Stack, StackProps } from 'aws-cdk-lib';
 // import { Construct } from 'constructs';
 // import { MicroService } from '../src/constructs/microservice';
 
@@ -48,6 +48,7 @@ describe('my suite', () => {
 //           sslEnabled: false,
 //           port: 8000,
 //           protocol: 'HTTP',
+//           zoneName: 'smallcase.com',
 //         },
 //       ],
 //       createCodedeployApplication: true,
