@@ -14,45 +14,52 @@ import { App } from '@aws-cdk/core';
 export class UnknownAPIStackDev extends Stack {
   constructor(scope: Construct, id: string, props?: StackProps) {
     super(scope, id, props);
-    new MicroService(stack, 'UnknownAPI', {
-      appName: 'UnknownAPI',
-      env: 'development',
+    new MicroService(this, 'test', {
+      appName: 'test',
+      env: 'prod',
       asgMaxSize: '1',
       asgMinSize: '1',
       diskSize: 20,
       instanceLabels: [
         {
-          key: 'NODE-VERSION',
+          key: 'SUDOERS_GROUPS_TAG',
           propagateAtLaunch: true,
-          value: '12',
-        },
-        {
-          key: 'TYPE',
-          propagateAtLaunch: true,
-          value: 'application',
+          value: 'Developers',
         },
       ],
       instanceType: 't3.micro',
       vpc: 'vpc-1234567',
-      port: 8000,
-      protocol: 'HTTP',
-      healthCheckPath: '/health',
-      subnets: ['subnet-987654321', 'subnet-12345678'],
+      role: {
+        type: 'existing',
+        roleArn: 'arn:aws:iam::123456789233:instance-profile/API-DEV',
+      },
+      sshKey: 'master-dev',
+      subnets: ['subnet-12345678', 'subnet-123456789'],
       tcpRules: [
         {
           sourceSG: 'sg-12345678',
           description: 'ssh rule',
           port: 22,
         },
+        {
+          sourceSG: 'sg-987654321',
+          description: 'from load balancer',
+          port: 8000,
+        },
       ],
-      host: 'abc-test-123.smallcase.com',
-      lbArn: 'arn:aws:elasticloadbalancing:ap-south-1:12345678910:loadbalancer/app/API-DEV-External',
-      sslEnabled: false,
-      sshKey: 'master-dev',
+      networkProps: [
+        {
+          healthCheckPath: '/health',
+          host: 'abc-test-123.smallcase.com',
+          lbArn: 'arn:aws:elasticloadbalancing:ap-south-1:123456789233:loadbalancer/app/API-DEV-External',
+          sslEnabled: false,
+          port: 8000,
+          protocol: 'HTTP',
+          zoneName: 'smallcase.com',
+          zoneId: '1234567891011'
+        },
+      ],
       createCodedeployApplication: true,
-      role: {
-        type: 'new',
-      },
     });
   }
 }
@@ -149,5 +156,3 @@ Deploy using
 ```
 ~ -> cdk deploy
 ```
-
-PS: Because of an [aws-cdk issue](https://github.com/aws/aws-cdk/issues/6803), creating a Route 53 record from existing load balancer is not possible using cdk.
