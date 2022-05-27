@@ -1,4 +1,4 @@
-import { Resource } from 'aws-cdk-lib';
+import { IResolvable, Resource } from 'aws-cdk-lib';
 import { BlockDevice, BlockDeviceVolume, CfnAutoScalingGroup, EbsDeviceVolumeType } from 'aws-cdk-lib/aws-autoscaling';
 import { InstanceProps, InstanceType, IVpc, LaunchTemplate, LaunchTemplateAttributes, MachineImage, Port, SecurityGroup, SecurityGroupProps, Vpc, VpcProps } from 'aws-cdk-lib/aws-ec2';
 import { CfnTargetGroup, NetworkTargetGroupProps } from 'aws-cdk-lib/aws-elasticloadbalancingv2';
@@ -21,6 +21,7 @@ export interface NetworkProps {
   readonly lbArn: string;
   readonly zoneId: string;
   readonly zoneName: string;
+  readonly successCode?: CfnTargetGroup.MatcherProperty | IResolvable | undefined;
 }
 
 export interface IngressRule {
@@ -270,6 +271,7 @@ export class AutoScaler extends Resource {
         healthCheckPath: t.healthCheckPath!,
         ...((t.protocol == 'GRPC') ? { protocol: 'HTTP' } : { protocol: t.protocol }),
         ...((t.protocol == 'GRPC') ? { protocolVersion: 'GRPC' } : {}),
+        ...((t.successCode) ? { matcher: t.successCode } : {}),
         healthCheckTimeoutSeconds: 5,
         healthCheckPort: String(t.port!),
         port: t.port!,

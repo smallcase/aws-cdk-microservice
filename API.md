@@ -1916,6 +1916,7 @@ const networkProps: NetworkProps = { ... }
 | <code><a href="#@smallcase/aws-cdk-microservice.NetworkProps.property.sslEnabled">sslEnabled</a></code> | <code>boolean</code> | *No description.* |
 | <code><a href="#@smallcase/aws-cdk-microservice.NetworkProps.property.zoneId">zoneId</a></code> | <code>string</code> | *No description.* |
 | <code><a href="#@smallcase/aws-cdk-microservice.NetworkProps.property.zoneName">zoneName</a></code> | <code>string</code> | *No description.* |
+| <code><a href="#@smallcase/aws-cdk-microservice.NetworkProps.property.successCode">successCode</a></code> | <code>aws-cdk-lib.aws_elasticloadbalancingv2.CfnTargetGroup.MatcherProperty \| aws-cdk-lib.IResolvable</code> | *No description.* |
 
 ---
 
@@ -1996,6 +1997,16 @@ public readonly zoneName: string;
 ```
 
 - *Type:* string
+
+---
+
+##### `successCode`<sup>Optional</sup> <a name="successCode" id="@smallcase/aws-cdk-microservice.NetworkProps.property.successCode"></a>
+
+```typescript
+public readonly successCode: MatcherProperty | IResolvable;
+```
+
+- *Type:* aws-cdk-lib.aws_elasticloadbalancingv2.CfnTargetGroup.MatcherProperty | aws-cdk-lib.IResolvable
 
 ---
 
